@@ -109,7 +109,7 @@
          <font>
             <Font size="32.0" />
          </font></TextArea>
-      <Label fx:id="postOperacion" layoutX="14.0" layoutY="126.0" prefHeight="24.0" prefWidth="284.0">
+      <Label fx:id="postOperacion" layoutX="16.0" layoutY="93.0" prefHeight="24.0" prefWidth="284.0">
          <font>
             <Font size="14.0" />
          </font>
