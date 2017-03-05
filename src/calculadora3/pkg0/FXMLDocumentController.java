@@ -55,9 +55,9 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextArea pantalla;
 
-    private static String operacion;
+    private static String operacion = "";
     private static String numero = "";
-    private Double numero1, numero2;
+    private Double numero1, numero2, total = 0.0, count = 0.0;
     @FXML
     private Label postOperacion;
 
@@ -104,17 +104,59 @@ public class FXMLDocumentController implements Initializable {
         numero1 = Double.parseDouble(numero);
 
         if (this.mas.isFocused()) {
-            operacion = "+";
-            this.postOperacion.setText(numero1 + " + ");
-            this.pantalla.setText(" ");
+            total = total + numero1;
+
+            operacion = operacion + numero1 + " + ";
+
+            this.pantalla.setText(total + "");
+            this.postOperacion.setText(operacion);
             numero = "";
 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         } else if (this.menos.isFocused()) {
-            operacion = "-";
-            this.postOperacion.setText(numero1 + " - ");
-            this.pantalla.setText(" ");
+            
+            numero1 = Double.parseDouble(numero);
+
+            if (count == 0.0) {
+                total = total + numero1;
+                count++;
+            } else {
+                total = total - numero1;
+            }
+            operacion = operacion + numero1 + " - ";
+
+            this.pantalla.setText(total + "");
+            this.postOperacion.setText(operacion);
             numero = "";
 
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         } else if (this.multiplicar.isFocused()) {
             operacion = "x";
             this.postOperacion.setText(numero1 + " x ");
@@ -134,25 +176,25 @@ public class FXMLDocumentController implements Initializable {
     private void apretarIgual(ActionEvent event) {
 
         numero2 = Double.parseDouble(numero);
-        
+
         Double resultado = 0.0;
 
         if (operacion.equalsIgnoreCase("+")) {
             resultado = numero1 + numero2;
             resultado = (resultado * 100.0) / 100.0;
-            
+
         } else if (operacion.equalsIgnoreCase("-")) {
             resultado = numero1 - numero2;
             resultado = (resultado * 100.0) / 100.0;
-            
+
         } else if (operacion.equalsIgnoreCase("x")) {
             resultado = numero1 * numero2;
             resultado = (resultado * 100.0) / 100.0;
-            
+
         } else if (operacion.equalsIgnoreCase("/")) {
             resultado = numero1 / numero2;
         }
-        
+
         this.pantalla.setText(resultado + "");
         this.postOperacion.setText(numero1 + operacion + numero2);
         numero = "";
@@ -165,7 +207,9 @@ public class FXMLDocumentController implements Initializable {
         this.pantalla.setText("");
         this.postOperacion.setText("");
         numero = "";
-        
+        total = 0.0;
+        operacion = "";
+
     }
 
 }

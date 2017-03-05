@@ -1,5 +1,6 @@
 package calculadora3.pkg0;
 
+import javafx.scene.image.Image;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,6 +17,10 @@ public class Calculadora30 extends Application {
         
         stage.setScene(scene);
         stage.show();
+        
+        //TITULO E ICONO
+        stage.getIcons().add(new Image("file:///C:/Users/Rasul/Documents/NetBeansProjects/calculadoraV3/icons/Calculator-icon.png"));
+        stage.setTitle("Calculadora");
     }
 
     public static void main(String[] args) {
