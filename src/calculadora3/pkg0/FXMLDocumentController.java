@@ -109,6 +109,8 @@ public class FXMLDocumentController implements Initializable {
 
         this.pantalla.setText(numero);
     }
+    
+    
 
     @FXML
     private void apretarOperacion(ActionEvent event) {
@@ -143,11 +145,8 @@ public class FXMLDocumentController implements Initializable {
             simbolo = "+";
             count++;
             this.igualApretado = false;
-            
-            
-            
-            
-            
+          
+        
             
             
             
@@ -186,7 +185,6 @@ public class FXMLDocumentController implements Initializable {
             this.igualApretado = false;
 
             
-                       
             
             
             
@@ -222,11 +220,7 @@ public class FXMLDocumentController implements Initializable {
             count++;
             this.igualApretado = false;
 
-            
-            
-            
-            
-            
+                        
             
             
             
