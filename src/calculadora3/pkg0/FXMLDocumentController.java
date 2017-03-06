@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
@@ -47,26 +48,43 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button cero;
     @FXML
-    private Button igual;
-    @FXML
     private Button limpiar;
     @FXML
     private Button dividir;
     @FXML
     private TextArea pantalla;
     @FXML
+    private Button limiparDigito;
+    @FXML
+    private Button igual;
+    @FXML
+    private Button coma;
+    @FXML
     private Label postOperacion;
-
+    @FXML
+    private CheckBox activarHistorico;
+    @FXML
+    private TextArea historico;
+    @FXML
+    private Label labelHistorico;
+    @FXML
+    private Button limpiarHistorico;
+    
+   
     private static String operacion = "";
     private static String numero = "";
+    private static String concat = "";
     private Double numero1, total = 0.0, count = 0.0;
     private String simbolo = "";
     
     boolean igualApretado = false;
+    
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         pantalla.setEditable(false); //EVITAR QUE SE PUEDA ESCRIBIR EN LA PANTALLA
+        historico.setEditable(false);
     }
 
     @FXML
@@ -280,12 +298,17 @@ public class FXMLDocumentController implements Initializable {
 
         this.pantalla.setText(total + "");
         this.postOperacion.setText(operacion + numero1);
+        
+        //HISTORICO
+        concat = concat + "\n" + operacion + numero1 + " = " + total;
+        this.historico.setText(concat);
+        
         numero = "";
         simbolo = "";
         operacion = "";
         count = 0.0;
         this.igualApretado = true;
-
+        
     }
 
     @FXML
@@ -301,5 +324,27 @@ public class FXMLDocumentController implements Initializable {
         
 
     }
+
+    @FXML
+    private void apretarHistorico(ActionEvent event) {
+        
+        if (activarHistorico.isSelected()) {
+            this.historico.setVisible(true);
+        } else {
+            this.historico.setVisible(false);
+        }
+        
+    }
+
+    @FXML
+    private void apretarLimpiarHistorico(ActionEvent event) {
+        
+        if (limpiarHistorico.isFocused()) {
+            this.historico.setText(" ");
+        }
+        
+    }
+
+    
 
 }

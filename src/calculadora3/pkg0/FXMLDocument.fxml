@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -7,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="315.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculadora3.pkg0.FXMLDocumentController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="701.0" prefWidth="315.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculadora3.pkg0.FXMLDocumentController">
    <children>
-      <GridPane layoutY="160.0" prefHeight="315.0" prefWidth="315.0">
+      <GridPane layoutY="165.0" prefHeight="386.0" prefWidth="315.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="10.0" prefWidth="200.0" />
@@ -21,24 +22,15 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
+            <Button fx:id="uno" mnemonicParsing="false" onAction="#apretarNumero" prefHeight="79.0" prefWidth="79.0" text="1">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
             <Button fx:id="dos" mnemonicParsing="false" onAction="#apretarNumero" prefHeight="79.0" prefWidth="79.0" text="2" GridPane.columnIndex="1">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Button>
-            <Button fx:id="nueve" mnemonicParsing="false" onAction="#apretarNumero" prefHeight="79.0" prefWidth="79.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Button>
-            <Button fx:id="ocho" mnemonicParsing="false" onAction="#apretarNumero" prefHeight="79.0" prefWidth="79.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Button>
-            <Button fx:id="seis" mnemonicParsing="false" onAction="#apretarNumero" prefHeight="79.0" prefWidth="79.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="30.0" />
                </font>
@@ -48,7 +40,7 @@
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button fx:id="cinco" mnemonicParsing="false" onAction="#apretarNumero" prefHeight="79.0" prefWidth="79.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="mas" mnemonicParsing="false" onAction="#apretarOperacion" prefHeight="79.0" prefWidth="79.0" text="+" GridPane.columnIndex="3">
                <font>
                   <Font size="30.0" />
                </font>
@@ -58,17 +50,12 @@
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button fx:id="siete" mnemonicParsing="false" onAction="#apretarNumero" prefHeight="79.0" prefWidth="79.0" text="7" GridPane.rowIndex="2">
+            <Button fx:id="cinco" mnemonicParsing="false" onAction="#apretarNumero" prefHeight="79.0" prefWidth="79.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button fx:id="uno" mnemonicParsing="false" onAction="#apretarNumero" prefHeight="79.0" prefWidth="79.0" text="1">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Button>
-            <Button fx:id="mas" mnemonicParsing="false" onAction="#apretarOperacion" prefHeight="79.0" prefWidth="79.0" text="+" GridPane.columnIndex="3">
+            <Button fx:id="seis" mnemonicParsing="false" onAction="#apretarNumero" prefHeight="79.0" prefWidth="79.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="30.0" />
                </font>
@@ -76,6 +63,21 @@
             <Button fx:id="menos" mnemonicParsing="false" onAction="#apretarOperacion" prefHeight="79.0" prefWidth="79.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="30.0" />
+               </font>
+            </Button>
+            <Button fx:id="siete" mnemonicParsing="false" onAction="#apretarNumero" prefHeight="79.0" prefWidth="79.0" text="7" GridPane.rowIndex="2">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button fx:id="ocho" mnemonicParsing="false" onAction="#apretarNumero" prefHeight="79.0" prefWidth="79.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button fx:id="nueve" mnemonicParsing="false" onAction="#apretarNumero" prefHeight="79.0" prefWidth="79.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font size="30.0" />
                </font>
             </Button>
             <Button fx:id="multiplicar" mnemonicParsing="false" onAction="#apretarOperacion" prefHeight="79.0" prefWidth="79.0" text="x" GridPane.columnIndex="3" GridPane.rowIndex="2">
@@ -88,7 +90,7 @@
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button fx:id="igual" mnemonicParsing="false" onAction="#apretarIgual" prefHeight="79.0" prefWidth="79.0" text="=" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="limiparDigito" mnemonicParsing="false" onAction="#apretarLimpiar" prefHeight="79.0" prefWidth="79.0" text="CE" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="30.0" />
                </font>
@@ -103,13 +105,24 @@
                   <Font size="30.0" />
                </font>
             </Button>
+            <Button fx:id="igual" mnemonicParsing="false" onAction="#apretarIgual" prefHeight="78.0" prefWidth="240.0" text="=" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="4">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button fx:id="coma" mnemonicParsing="false" onAction="#apretarNumero" prefHeight="79.0" prefWidth="79.0" text="," GridPane.rowIndex="4">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
          </children>
       </GridPane>
-      <TextArea fx:id="pantalla" layoutY="32.0" prefHeight="128.0" prefWidth="315.0">
+      <TextArea fx:id="pantalla" layoutY="32.0" prefHeight="134.0" prefWidth="315.0">
          <font>
             <Font size="32.0" />
-         </font></TextArea>
-      <Label fx:id="postOperacion" layoutX="16.0" layoutY="93.0" prefHeight="24.0" prefWidth="284.0">
+         </font>
+      </TextArea>
+      <Label fx:id="postOperacion" layoutX="16.0" layoutY="98.0" prefHeight="24.0" prefWidth="284.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -119,6 +132,14 @@
             <Label layoutX="14.0" layoutY="8.0" text="Ver" />
             <Label layoutX="56.0" layoutY="8.0" text="Edición" />
             <Label layoutX="114.0" layoutY="8.0" text="Ayuda" />
+         </children>
+      </Pane>
+      <TextArea fx:id="historico" layoutY="550.0" prefHeight="123.0" prefWidth="315.0" />
+      <Pane layoutX="1.0" layoutY="673.0" prefHeight="24.0" prefWidth="315.0">
+         <children>
+            <CheckBox fx:id="activarHistorico" layoutX="8.0" layoutY="4.0" mnemonicParsing="false" onAction="#apretarHistorico" prefHeight="17.0" prefWidth="10.0" />
+            <Label fx:id="labelHistorico" layoutX="30.0" layoutY="4.0" text="activar histórico" />
+            <Button fx:id="limpiarHistorico" layoutX="132.0" layoutY="1.0" mnemonicParsing="false" onAction="#apretarLimpiarHistorico" prefHeight="11.0" prefWidth="180.0" text="limpiar histórico" />
          </children>
       </Pane>
    </children>
