@@ -18,9 +18,12 @@ public class Calculadora30 extends Application {
         stage.setScene(scene);
         stage.show();
         
-        //TITULO E ICONO
-        stage.getIcons().add(new Image("file:///C:/Users/Rasul/Documents/NetBeansProjects/calculadoraV3/icons/Calculator-icon.png"));
-        stage.setTitle("Calculadora");
+        
+        stage.getIcons().add(new Image("file:///C:/Users/Rasul/Documents/NetBeansProjects/calculadoraV3/icons/Calculator-icon.png")); //ICONO DE LA APLICACION
+        stage.setTitle("Calculadora"); //TITULO DE LA APLICACION
+        stage.setResizable(false); //EVITAR QUE SE PUEDA MODIFICAR EL TAMAÑO DE LA VENTANA
+        stage.sizeToScene(); // AJUSTAR LA VENTANA AL TAMAÑO DEL PANE (PARA QUE NO HAYA PADING EN LA VENTANA)
+        
     }
 
     public static void main(String[] args) {

@@ -54,23 +54,35 @@ public class FXMLDocumentController implements Initializable {
     private Button dividir;
     @FXML
     private TextArea pantalla;
-
-    private static String operacion = "";
-    private static String numero = "";
-    private Double numero1, numero2, total = 0.0, count = 0.0;
     @FXML
     private Label postOperacion;
 
+    private static String operacion = "";
+    private static String numero = "";
+    private Double numero1, total = 0.0, count = 0.0;
+    private String simbolo = "";
+    
+    boolean igualApretado = false;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        pantalla.setEditable(false); //EVITAR QUE SE PUEDA ESCRIBIR EN LA PANTALLA
     }
 
     @FXML
     private void apretarNumero(ActionEvent event) {
 
         String digito = "";
-
+        
+        if (this.igualApretado) {
+            this.pantalla.setText("");
+            this.postOperacion.setText("");
+            numero = "";
+            total = 0.0;
+            operacion = "";
+            count = 0.0;
+        }            
+        
         if (this.uno.isFocused()) {
             digito = "1";
         } else if (this.dos.isFocused()) {
@@ -92,7 +104,7 @@ public class FXMLDocumentController implements Initializable {
         } else if (this.cero.isFocused()) {
             digito = "0";
         }
-
+        this.igualApretado = false;
         numero = numero + digito;
 
         this.pantalla.setText(numero);
@@ -101,22 +113,36 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void apretarOperacion(ActionEvent event) {
 
-        numero1 = Double.parseDouble(numero);
-
         if (this.mas.isFocused()) {
-            total = total + numero1;
+            
+            if (igualApretado) {
+                numero1 = total;
+            } else {
+                numero1 = Double.parseDouble(numero);
+            }
+            if (simbolo.equalsIgnoreCase("+")) {
+                total = total + numero1;
+
+            } else if (simbolo.equalsIgnoreCase("-")) {
+                total = total - numero1;
+
+            } else if (simbolo.equalsIgnoreCase("x")) {
+                total = total * numero1;
+
+            } else if (simbolo.equalsIgnoreCase("/")) {
+                total = total / numero1;
+            } else {
+                total = numero1;
+            }
 
             operacion = operacion + numero1 + " + ";
 
             this.pantalla.setText(total + "");
             this.postOperacion.setText(operacion);
             numero = "";
-
-            
-            
-            
-            
-            
+            simbolo = "+";
+            count++;
+            this.igualApretado = false;
             
             
             
@@ -126,78 +152,145 @@ public class FXMLDocumentController implements Initializable {
             
             
         } else if (this.menos.isFocused()) {
-            
-            numero1 = Double.parseDouble(numero);
+
+            if (igualApretado) {
+                numero1 = total;
+                count++;
+            } else {
+                numero1 = Double.parseDouble(numero);
+            }
 
             if (count == 0.0) {
                 total = total + numero1;
                 count++;
-            } else {
+            } else if (simbolo.equalsIgnoreCase("+")) {
+                total = total + numero1;
+
+            } else if (simbolo.equalsIgnoreCase("-")) {
                 total = total - numero1;
+
+            } else if (simbolo.equalsIgnoreCase("x")) {
+                total = total * numero1;
+
+            } else if (simbolo.equalsIgnoreCase("/")) {
+                total = total / numero1;
             }
+            
             operacion = operacion + numero1 + " - ";
 
             this.pantalla.setText(total + "");
             this.postOperacion.setText(operacion);
             numero = "";
+            simbolo = "-";
+            count++;
+            this.igualApretado = false;
 
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                       
             
             
             
         } else if (this.multiplicar.isFocused()) {
-            operacion = "x";
-            this.postOperacion.setText(numero1 + " x ");
-            this.pantalla.setText(" ");
-            numero = "";
+            
+            if (igualApretado) {
+                numero1 = total;
+            } else {
+                numero1 = Double.parseDouble(numero);
+            }
+            
+            if (simbolo.equalsIgnoreCase("+")) {
+                total = total + numero1;
 
-        } else if (this.dividir.isFocused()) {
-            operacion = "/";
-            this.postOperacion.setText(numero1 + " / ");
-            this.pantalla.setText(" ");
+            } else if (simbolo.equalsIgnoreCase("-")) {
+                total = total - numero1;
+
+            } else if (simbolo.equalsIgnoreCase("x")) {
+                total = total * numero1;
+
+            } else if (simbolo.equalsIgnoreCase("/")) {
+                total = total / numero1;
+            } else {
+                total = numero1;
+            }
+
+            operacion = operacion + numero1 + " x ";
+
+            this.pantalla.setText(total + "");
+            this.postOperacion.setText(operacion);
             numero = "";
+            simbolo = "x";
+            count++;
+            this.igualApretado = false;
+
+            
+            
+            
+            
+            
+            
+            
+            
+        } else if (this.dividir.isFocused()) {
+           
+            if (igualApretado) {
+                numero1 = total;
+            } else {
+                numero1 = Double.parseDouble(numero);
+            }
+            
+            if (simbolo.equalsIgnoreCase("+")) {
+                total = total + numero1;
+
+            } else if (simbolo.equalsIgnoreCase("-")) {
+                total = total - numero1;
+
+            } else if (simbolo.equalsIgnoreCase("x")) {
+                total = total * numero1;
+
+            } else if (simbolo.equalsIgnoreCase("/")) {
+                total = total / numero1;
+            } else {
+                total = numero1;
+            }
+
+            operacion = operacion + numero1 + " / ";
+
+            this.pantalla.setText(total + "");
+            this.postOperacion.setText(operacion);
+            numero = "";
+            simbolo = "/";
+            count++;
+            this.igualApretado = false;
+
 
         }
     }
 
     @FXML
     private void apretarIgual(ActionEvent event) {
+        
+        numero1 = Double.parseDouble(numero);
+        
+        if (simbolo.equalsIgnoreCase("+")) {
+            total = total + numero1;
 
-        numero2 = Double.parseDouble(numero);
+        } else if (simbolo.equalsIgnoreCase("-")) {
+            total = total - numero1;
 
-        Double resultado = 0.0;
+        } else if (simbolo.equalsIgnoreCase("x")) {
+            total = total * numero1;
 
-        if (operacion.equalsIgnoreCase("+")) {
-            resultado = numero1 + numero2;
-            resultado = (resultado * 100.0) / 100.0;
-
-        } else if (operacion.equalsIgnoreCase("-")) {
-            resultado = numero1 - numero2;
-            resultado = (resultado * 100.0) / 100.0;
-
-        } else if (operacion.equalsIgnoreCase("x")) {
-            resultado = numero1 * numero2;
-            resultado = (resultado * 100.0) / 100.0;
-
-        } else if (operacion.equalsIgnoreCase("/")) {
-            resultado = numero1 / numero2;
+        } else if (simbolo.equalsIgnoreCase("/")) {
+            total = total / numero1;
         }
 
-        this.pantalla.setText(resultado + "");
-        this.postOperacion.setText(numero1 + operacion + numero2);
+        this.pantalla.setText(total + "");
+        this.postOperacion.setText(operacion + numero1);
         numero = "";
+        simbolo = "";
+        operacion = "";
+        count = 0.0;
+        this.igualApretado = true;
 
     }
 
@@ -209,6 +302,9 @@ public class FXMLDocumentController implements Initializable {
         numero = "";
         total = 0.0;
         operacion = "";
+        count = 0.0;
+        this.igualApretado = false;
+        
 
     }
 
