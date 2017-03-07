@@ -19,7 +19,7 @@ public class Calculadora30 extends Application {
         stage.show();
         
         
-        stage.getIcons().add(new Image("file:///C:/Users/daw/Documents/NetBeansProjects/calculadoraV3/icons/Calculator-icon.png")); //ICONO DE LA APLICACION
+        stage.getIcons().add(new Image("http://icon-icons.com/icons2/272/PNG/512/Calculator_30001.png")); //ICONO DE LA APLICACION
         stage.setTitle("Calculadora"); //TITULO DE LA APLICACION
         stage.setResizable(false); //EVITAR QUE SE PUEDA MODIFICAR EL TAMAÑO DE LA VENTANA
         stage.sizeToScene(); // AJUSTAR LA VENTANA AL TAMAÑO DEL PANE (PARA QUE NO HAYA PADING EN LA VENTANA)
