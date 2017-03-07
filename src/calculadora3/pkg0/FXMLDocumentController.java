@@ -341,6 +341,7 @@ public class FXMLDocumentController implements Initializable {
         
         if (limpiarHistorico.isFocused()) {
             this.historico.setText(" ");
+            concat = "";
         }
         
     }
