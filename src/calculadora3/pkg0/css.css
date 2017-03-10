@@ -41,4 +41,11 @@ and open the template in the editor.
     -fx-background-color: rgb(175, 190, 197);
 }
 
+#uno:hover, #dos:hover, #tres:hover, #cuatro:hover, #cinco:hover, #seis:hover, #siete:hover, #ocho:hover, #nueve:hover, #cero:hover, #limpiar:hover, #limpiarDigito:hover, #coma:hover{
+    -fx-background-color: rgb(132, 154, 165);
+}
 
+#igual:hover{
+    -fx-background-color: rgb(105, 241, 207);
+    -fx-color: rgb(0, 0, 0);
+}
